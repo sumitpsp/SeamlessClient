@@ -106,7 +106,7 @@ int main(int argc, char* argv[])
    #endif
 
    for (int i = 0; i < 1000000; i ++)
-   {
+       
       int ssize = 0;
       int ss;
       while (ssize < size)

@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F04B89F17DEAEA8005FFB98 /* RecentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B89E17DEAEA8005FFB98 /* RecentItem.m */; };
+		7F04B8A217DEAFD9005FFB98 /* RecentItemsDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8A117DEAFD9005FFB98 /* RecentItemsDataController.m */; };
+		7F04B8A517DEB7A7005FFB98 /* RecentlyChangedFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8A417DEB7A7005FFB98 /* RecentlyChangedFiles.m */; };
+		7F04B8A817DEB7CF005FFB98 /* OpenApplicationWindows.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8A717DEB7CF005FFB98 /* OpenApplicationWindows.m */; };
+		7F60E58417C7F0B300DA519B /* SCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F60E58017C7F0B300DA519B /* SCEvent.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F60E58517C7F0B300DA519B /* SCEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F60E58317C7F0B300DA519B /* SCEvents.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7F60E58817CAE62900DA519B /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F60E58717CAE62900DA519B /* ItemView.m */; };
+		7F60E59017CFD29900DA519B /* ItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F60E58E17CFD29900DA519B /* ItemViewController.m */; };
+		7F60E59117CFD29900DA519B /* ItemViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F60E58F17CFD29900DA519B /* ItemViewController.xib */; };
 		7F86EFCB17A2DB0500DA4E9A /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F86EFCA17A2DB0500DA4E9A /* Cocoa.framework */; };
 		7F86EFD517A2DB0500DA4E9A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F86EFD317A2DB0500DA4E9A /* InfoPlist.strings */; };
 		7F86EFD717A2DB0500DA4E9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F86EFD617A2DB0500DA4E9A /* main.m */; };
@@ -14,10 +23,49 @@
 		7F86EFDE17A2DB0500DA4E9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F86EFDD17A2DB0500DA4E9A /* AppDelegate.m */; };
 		7F86EFE117A2DB0600DA4E9A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7F86EFDF17A2DB0600DA4E9A /* MainMenu.xib */; };
 		7F86EFE917A2DB3C00DA4E9A /* Testcpp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7F86EFE717A2DB3C00DA4E9A /* Testcpp.cpp */; };
-		7F86EFEB17A4861600DA4E9A /* libudt.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F86EFEA17A4861600DA4E9A /* libudt.dylib */; };
+		7FC23B7817B9811300D96376 /* ScriptingBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FC23B7717B9811300D96376 /* ScriptingBridge.framework */; };
+		7FC23B7E17B99A9700D96376 /* podcast.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FC23B7D17B99A9700D96376 /* podcast.png */; };
+		7FC23B8D17BB158D00D96376 /* iTunesHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC23B8C17BB158D00D96376 /* iTunesHandler.m */; };
+		7FC23B9017BB15A300D96376 /* WordHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC23B8F17BB15A300D96376 /* WordHandler.m */; };
+		7FC23B9317BB15B200D96376 /* PowerPointHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC23B9217BB15B200D96376 /* PowerPointHandler.m */; };
+		7FC23B9617BB15C200D96376 /* FinderHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC23B9517BB15C200D96376 /* FinderHandler.m */; };
+		7FC23B9917BB161300D96376 /* ApplicationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC23B9817BB161300D96376 /* ApplicationHandler.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXBuildRule section */
+		7FC23B7917B9817300D96376 /* PBXBuildRule */ = {
+			isa = PBXBuildRule;
+			compilerSpec = com.apple.compilers.proxy.script;
+			filePatterns = "*.app";
+			fileType = pattern.proxy;
+			isEditable = 1;
+			outputFiles = (
+				"(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h\n(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h\n(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h\n(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h\n$(DERIVED_FILES_DIR)/$(INPUT_FILE_BASE).h",
+			);
+			script = "sdef \"$INPUT_FILE_PATH\" | sdp -fh -o \"$DERIVED_FILES_DIR\" --basename\n\"$INPUT_FILE_BASE\" --bundleid `defaults read \"$INPUT_FILE_PATH/Contents/Info\"\nCFBundleIdentifier`";
+		};
+/* End PBXBuildRule section */
+
 /* Begin PBXFileReference section */
+		7F04B89D17DEAEA8005FFB98 /* RecentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentItem.h; sourceTree = "<group>"; };
+		7F04B89E17DEAEA8005FFB98 /* RecentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItem.m; sourceTree = "<group>"; };
+		7F04B8A017DEAFD9005FFB98 /* RecentItemsDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentItemsDataController.h; sourceTree = "<group>"; };
+		7F04B8A117DEAFD9005FFB98 /* RecentItemsDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentItemsDataController.m; sourceTree = "<group>"; };
+		7F04B8A317DEB7A7005FFB98 /* RecentlyChangedFiles.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentlyChangedFiles.h; sourceTree = "<group>"; };
+		7F04B8A417DEB7A7005FFB98 /* RecentlyChangedFiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyChangedFiles.m; sourceTree = "<group>"; };
+		7F04B8A617DEB7CF005FFB98 /* OpenApplicationWindows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenApplicationWindows.h; sourceTree = "<group>"; };
+		7F04B8A717DEB7CF005FFB98 /* OpenApplicationWindows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenApplicationWindows.m; sourceTree = "<group>"; };
+		7F60E57E17C7F0B300DA519B /* SCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
+		7F60E57F17C7F0B300DA519B /* SCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvent.h; sourceTree = "<group>"; };
+		7F60E58017C7F0B300DA519B /* SCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvent.m; sourceTree = "<group>"; };
+		7F60E58117C7F0B300DA519B /* SCEventListenerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEventListenerProtocol.h; sourceTree = "<group>"; };
+		7F60E58217C7F0B300DA519B /* SCEvents.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvents.h; sourceTree = "<group>"; };
+		7F60E58317C7F0B300DA519B /* SCEvents.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvents.m; sourceTree = "<group>"; };
+		7F60E58617CAE62800DA519B /* ItemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemView.h; sourceTree = "<group>"; };
+		7F60E58717CAE62900DA519B /* ItemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemView.m; sourceTree = "<group>"; };
+		7F60E58D17CFD29900DA519B /* ItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemViewController.h; sourceTree = "<group>"; };
+		7F60E58E17CFD29900DA519B /* ItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemViewController.m; sourceTree = "<group>"; };
+		7F60E58F17CFD29900DA519B /* ItemViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ItemViewController.xib; sourceTree = "<group>"; };
 		7F86EFC717A2DB0500DA4E9A /* SeamlessClientMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeamlessClientMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F86EFCA17A2DB0500DA4E9A /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		7F86EFCD17A2DB0500DA4E9A /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -33,7 +81,26 @@
 		7F86EFE017A2DB0600DA4E9A /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		7F86EFE717A2DB3C00DA4E9A /* Testcpp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Testcpp.cpp; sourceTree = "<group>"; };
 		7F86EFE817A2DB3C00DA4E9A /* Testcpp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Testcpp.h; sourceTree = "<group>"; };
-		7F86EFEA17A4861600DA4E9A /* libudt.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libudt.dylib; sourceTree = "<group>"; };
+		7FC23B7717B9811300D96376 /* ScriptingBridge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ScriptingBridge.framework; path = System/Library/Frameworks/ScriptingBridge.framework; sourceTree = SDKROOT; };
+		7FC23B7D17B99A9700D96376 /* podcast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = podcast.png; path = ../podcast.png; sourceTree = "<group>"; };
+		7FC23B8317BAF31C00D96376 /* chrome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = chrome.h; sourceTree = "<group>"; };
+		7FC23B8417BAF31C00D96376 /* excel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = excel.h; sourceTree = "<group>"; };
+		7FC23B8517BAF31C00D96376 /* finder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = finder.h; sourceTree = "<group>"; };
+		7FC23B8617BAF31C00D96376 /* firefox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = firefox.h; sourceTree = "<group>"; };
+		7FC23B8717BAF31C00D96376 /* powerpoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = powerpoint.h; sourceTree = "<group>"; };
+		7FC23B8817BAF31C00D96376 /* textedit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = textedit.h; sourceTree = "<group>"; };
+		7FC23B8917BAF31C00D96376 /* vlc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vlc.h; sourceTree = "<group>"; };
+		7FC23B8B17BB158D00D96376 /* iTunesHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iTunesHandler.h; sourceTree = "<group>"; };
+		7FC23B8C17BB158D00D96376 /* iTunesHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iTunesHandler.m; sourceTree = "<group>"; };
+		7FC23B8E17BB15A300D96376 /* WordHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordHandler.h; sourceTree = "<group>"; };
+		7FC23B8F17BB15A300D96376 /* WordHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordHandler.m; sourceTree = "<group>"; };
+		7FC23B9117BB15B200D96376 /* PowerPointHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PowerPointHandler.h; sourceTree = "<group>"; };
+		7FC23B9217BB15B200D96376 /* PowerPointHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PowerPointHandler.m; sourceTree = "<group>"; };
+		7FC23B9417BB15C200D96376 /* FinderHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FinderHandler.h; sourceTree = "<group>"; };
+		7FC23B9517BB15C200D96376 /* FinderHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FinderHandler.m; sourceTree = "<group>"; };
+		7FC23B9717BB161300D96376 /* ApplicationHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApplicationHandler.h; sourceTree = "<group>"; };
+		7FC23B9817BB161300D96376 /* ApplicationHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ApplicationHandler.m; sourceTree = "<group>"; };
+		7FC23B9B17BCEF6F00D96376 /* CGSPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGSPrivate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,17 +108,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FC23B7817B9811300D96376 /* ScriptingBridge.framework in Frameworks */,
 				7F86EFCB17A2DB0500DA4E9A /* Cocoa.framework in Frameworks */,
-				7F86EFEB17A4861600DA4E9A /* libudt.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F60E57D17C7F0B300DA519B /* SCEvents */ = {
+			isa = PBXGroup;
+			children = (
+				7F60E57E17C7F0B300DA519B /* SCConstants.h */,
+				7F60E57F17C7F0B300DA519B /* SCEvent.h */,
+				7F60E58017C7F0B300DA519B /* SCEvent.m */,
+				7F60E58117C7F0B300DA519B /* SCEventListenerProtocol.h */,
+				7F60E58217C7F0B300DA519B /* SCEvents.h */,
+				7F60E58317C7F0B300DA519B /* SCEvents.m */,
+			);
+			name = SCEvents;
+			path = Source;
+			sourceTree = "<group>";
+		};
 		7F86EFBE17A2DB0500DA4E9A = {
 			isa = PBXGroup;
 			children = (
+				7F60E57D17C7F0B300DA519B /* SCEvents */,
+				7FC23B7717B9811300D96376 /* ScriptingBridge.framework */,
 				7F86EFD017A2DB0500DA4E9A /* SeamlessClientMac */,
 				7F86EFC917A2DB0500DA4E9A /* Frameworks */,
 				7F86EFC817A2DB0500DA4E9A /* Products */,
@@ -89,11 +172,34 @@
 			isa = PBXGroup;
 			children = (
 				7F86EFDC17A2DB0500DA4E9A /* AppDelegate.h */,
-				7F86EFEA17A4861600DA4E9A /* libudt.dylib */,
 				7F86EFDD17A2DB0500DA4E9A /* AppDelegate.m */,
+				7F04B89D17DEAEA8005FFB98 /* RecentItem.h */,
+				7F04B8A017DEAFD9005FFB98 /* RecentItemsDataController.h */,
+				7F04B8A117DEAFD9005FFB98 /* RecentItemsDataController.m */,
+				7F04B89E17DEAEA8005FFB98 /* RecentItem.m */,
+				7F60E58617CAE62800DA519B /* ItemView.h */,
+				7F60E58717CAE62900DA519B /* ItemView.m */,
+				7FC23B8B17BB158D00D96376 /* iTunesHandler.h */,
+				7FC23B9717BB161300D96376 /* ApplicationHandler.h */,
+				7FC23B9817BB161300D96376 /* ApplicationHandler.m */,
+				7FC23B8C17BB158D00D96376 /* iTunesHandler.m */,
+				7FC23B8E17BB15A300D96376 /* WordHandler.h */,
+				7FC23B8F17BB15A300D96376 /* WordHandler.m */,
+				7FC23B9117BB15B200D96376 /* PowerPointHandler.h */,
+				7FC23B9217BB15B200D96376 /* PowerPointHandler.m */,
+				7FC23B9417BB15C200D96376 /* FinderHandler.h */,
+				7FC23B9517BB15C200D96376 /* FinderHandler.m */,
+				7F04B8A317DEB7A7005FFB98 /* RecentlyChangedFiles.h */,
+				7F04B8A417DEB7A7005FFB98 /* RecentlyChangedFiles.m */,
+				7F04B8A617DEB7CF005FFB98 /* OpenApplicationWindows.h */,
+				7F04B8A717DEB7CF005FFB98 /* OpenApplicationWindows.m */,
+				7FC23B9B17BCEF6F00D96376 /* CGSPrivate.h */,
 				7F86EFE717A2DB3C00DA4E9A /* Testcpp.cpp */,
 				7F86EFE817A2DB3C00DA4E9A /* Testcpp.h */,
 				7F86EFDF17A2DB0600DA4E9A /* MainMenu.xib */,
+				7F60E58D17CFD29900DA519B /* ItemViewController.h */,
+				7F60E58E17CFD29900DA519B /* ItemViewController.m */,
+				7F60E58F17CFD29900DA519B /* ItemViewController.xib */,
 				7F86EFD117A2DB0500DA4E9A /* Supporting Files */,
 			);
 			path = SeamlessClientMac;
@@ -102,6 +208,14 @@
 		7F86EFD117A2DB0500DA4E9A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7FC23B8317BAF31C00D96376 /* chrome.h */,
+				7FC23B8417BAF31C00D96376 /* excel.h */,
+				7FC23B8517BAF31C00D96376 /* finder.h */,
+				7FC23B8617BAF31C00D96376 /* firefox.h */,
+				7FC23B8717BAF31C00D96376 /* powerpoint.h */,
+				7FC23B8817BAF31C00D96376 /* textedit.h */,
+				7FC23B8917BAF31C00D96376 /* vlc.h */,
+				7FC23B7D17B99A9700D96376 /* podcast.png */,
 				7F86EFD217A2DB0500DA4E9A /* SeamlessClientMac-Info.plist */,
 				7F86EFD317A2DB0500DA4E9A /* InfoPlist.strings */,
 				7F86EFD617A2DB0500DA4E9A /* main.m */,
@@ -123,6 +237,7 @@
 				7F86EFC517A2DB0500DA4E9A /* Resources */,
 			);
 			buildRules = (
+				7FC23B7917B9817300D96376 /* PBXBuildRule */,
 			);
 			dependencies = (
 			);
@@ -165,6 +280,8 @@
 				7F86EFD517A2DB0500DA4E9A /* InfoPlist.strings in Resources */,
 				7F86EFDB17A2DB0500DA4E9A /* Credits.rtf in Resources */,
 				7F86EFE117A2DB0600DA4E9A /* MainMenu.xib in Resources */,
+				7FC23B7E17B99A9700D96376 /* podcast.png in Resources */,
+				7F60E59117CFD29900DA519B /* ItemViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +295,19 @@
 				7F86EFD717A2DB0500DA4E9A /* main.m in Sources */,
 				7F86EFDE17A2DB0500DA4E9A /* AppDelegate.m in Sources */,
 				7F86EFE917A2DB3C00DA4E9A /* Testcpp.cpp in Sources */,
+				7FC23B8D17BB158D00D96376 /* iTunesHandler.m in Sources */,
+				7FC23B9017BB15A300D96376 /* WordHandler.m in Sources */,
+				7FC23B9317BB15B200D96376 /* PowerPointHandler.m in Sources */,
+				7FC23B9617BB15C200D96376 /* FinderHandler.m in Sources */,
+				7FC23B9917BB161300D96376 /* ApplicationHandler.m in Sources */,
+				7F60E58417C7F0B300DA519B /* SCEvent.m in Sources */,
+				7F60E58517C7F0B300DA519B /* SCEvents.m in Sources */,
+				7F60E58817CAE62900DA519B /* ItemView.m in Sources */,
+				7F60E59017CFD29900DA519B /* ItemViewController.m in Sources */,
+				7F04B89F17DEAEA8005FFB98 /* RecentItem.m in Sources */,
+				7F04B8A217DEAFD9005FFB98 /* RecentItemsDataController.m in Sources */,
+				7F04B8A517DEB7A7005FFB98 /* RecentlyChangedFiles.m in Sources */,
+				7F04B8A817DEB7CF005FFB98 /* OpenApplicationWindows.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +451,7 @@
 				7F86EFE617A2DB0600DA4E9A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

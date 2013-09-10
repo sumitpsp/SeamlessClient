@@ -8,9 +8,21 @@
 
 #import <Cocoa/Cocoa.h>
 #include "Testcpp.h"
+#import "SCEventListenerProtocol.h"
+#import "RecentItemsDataController.h"
 
-@interface AppDelegate : NSObject <NSApplicationDelegate>
+@interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, SCEventListenerProtocol> {
+    NSStatusItem *statusItem;
+    __weak NSMenu *_menu;
+    __weak NSView *_itemView;
+    SCEvents *_events;
+}
+
+- (void)setupEventListener;
+
 
 @property (assign) IBOutlet NSWindow *window;
-
+@property (weak) IBOutlet NSMenu *menu;
+@property (weak) IBOutlet NSView *itemView;
+@property (strong, nonatomic) RecentItemsDataController* recentItemsDataController;
 @end
