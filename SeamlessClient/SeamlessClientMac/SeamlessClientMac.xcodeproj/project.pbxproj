@@ -11,6 +11,8 @@
 		7F04B8A217DEAFD9005FFB98 /* RecentItemsDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8A117DEAFD9005FFB98 /* RecentItemsDataController.m */; };
 		7F04B8A517DEB7A7005FFB98 /* RecentlyChangedFiles.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8A417DEB7A7005FFB98 /* RecentlyChangedFiles.m */; };
 		7F04B8A817DEB7CF005FFB98 /* OpenApplicationWindows.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8A717DEB7CF005FFB98 /* OpenApplicationWindows.m */; };
+		7F04B8AB17DFAAF8005FFB98 /* ItemQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8AA17DFAAF8005FFB98 /* ItemQueue.m */; };
+		7F04B8AE17DFAC9B005FFB98 /* MutableArrayQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F04B8AD17DFAC9B005FFB98 /* MutableArrayQueue.m */; };
 		7F60E58417C7F0B300DA519B /* SCEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F60E58017C7F0B300DA519B /* SCEvent.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F60E58517C7F0B300DA519B /* SCEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F60E58317C7F0B300DA519B /* SCEvents.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		7F60E58817CAE62900DA519B /* ItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F60E58717CAE62900DA519B /* ItemView.m */; };
@@ -55,6 +57,10 @@
 		7F04B8A417DEB7A7005FFB98 /* RecentlyChangedFiles.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentlyChangedFiles.m; sourceTree = "<group>"; };
 		7F04B8A617DEB7CF005FFB98 /* OpenApplicationWindows.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OpenApplicationWindows.h; sourceTree = "<group>"; };
 		7F04B8A717DEB7CF005FFB98 /* OpenApplicationWindows.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OpenApplicationWindows.m; sourceTree = "<group>"; };
+		7F04B8A917DFAAF8005FFB98 /* ItemQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemQueue.h; sourceTree = "<group>"; };
+		7F04B8AA17DFAAF8005FFB98 /* ItemQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemQueue.m; sourceTree = "<group>"; };
+		7F04B8AC17DFAC9B005FFB98 /* MutableArrayQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MutableArrayQueue.h; sourceTree = "<group>"; };
+		7F04B8AD17DFAC9B005FFB98 /* MutableArrayQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MutableArrayQueue.m; sourceTree = "<group>"; };
 		7F60E57E17C7F0B300DA519B /* SCConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCConstants.h; sourceTree = "<group>"; };
 		7F60E57F17C7F0B300DA519B /* SCEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCEvent.h; sourceTree = "<group>"; };
 		7F60E58017C7F0B300DA519B /* SCEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCEvent.m; sourceTree = "<group>"; };
@@ -173,6 +179,10 @@
 			children = (
 				7F86EFDC17A2DB0500DA4E9A /* AppDelegate.h */,
 				7F86EFDD17A2DB0500DA4E9A /* AppDelegate.m */,
+				7F04B8A917DFAAF8005FFB98 /* ItemQueue.h */,
+				7F04B8AC17DFAC9B005FFB98 /* MutableArrayQueue.h */,
+				7F04B8AD17DFAC9B005FFB98 /* MutableArrayQueue.m */,
+				7F04B8AA17DFAAF8005FFB98 /* ItemQueue.m */,
 				7F04B89D17DEAEA8005FFB98 /* RecentItem.h */,
 				7F04B8A017DEAFD9005FFB98 /* RecentItemsDataController.h */,
 				7F04B8A117DEAFD9005FFB98 /* RecentItemsDataController.m */,
@@ -308,6 +318,8 @@
 				7F04B8A217DEAFD9005FFB98 /* RecentItemsDataController.m in Sources */,
 				7F04B8A517DEB7A7005FFB98 /* RecentlyChangedFiles.m in Sources */,
 				7F04B8A817DEB7CF005FFB98 /* OpenApplicationWindows.m in Sources */,
+				7F04B8AB17DFAAF8005FFB98 /* ItemQueue.m in Sources */,
+				7F04B8AE17DFAC9B005FFB98 /* MutableArrayQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

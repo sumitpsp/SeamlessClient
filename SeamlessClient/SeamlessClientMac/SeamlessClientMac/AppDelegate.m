@@ -20,12 +20,14 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    self.recentItemsDataController = [[RecentItemsDataController alloc] init];
     // Insert code here to initialize your application
 }
 
 -(void)awakeFromNib{
     
     statusItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSVariableStatusItemLength] ;
+    
     NSImage* icon = [NSImage imageNamed:@"podcast.png"];
 
     [statusItem setImage:icon];
@@ -33,6 +35,18 @@
     [statusItem setHighlightMode:YES];
     [self.menu setDelegate:self];
     [self setupEventListener];
+}
+
+-(BOOL) addIfExists:(NSString*) name {
+    RecentItem* item = [self.recentItemsDataController fileWithNameExists:name];
+    if(item != nil) {
+        [self.itemQueue.queue enqueue:item];
+        NSLog(@"Added item %@", [item name]);
+        return TRUE;
+    }
+    else {
+        return FALSE;
+    }
 }
 
 -(void) getRecentItems:(NSMutableArray*)recentFiles recentWindows:(NSMutableArray*)windows {
@@ -43,16 +57,23 @@
         for (NSMutableDictionary* windowInfo in windows) {
             pid_t wpid = (int)[[windowInfo valueForKey:@"kCGWindowOwnerPID"] integerValue];
             if(pid == wpid) {
-                NSLog(@"PID match for %ld", (long)pid);
+                NSString* probableName = [windowInfo valueForKey:@"kCGWindowName"];
+                NSLog(@"PID match for %ld. Probable name is %@", (long)pid, probableName);
+                if(![self addIfExists:probableName]) {
+                    [self addIfExists:[probableName stringByDeletingPathExtension]];
+                };
             }
         }
     }
 }
 
 -(void)addRecentFiles:(NSMutableArray*) files {
-    for (NSURL* url in files) {
-        NSString* name = [url lastPathComponent];
-        NSString* path = [url absoluteString];
+    for (id url in files) {
+        CFURLRef cfurl = (__bridge CFURLRef)(url);
+        NSString* path = [NSString stringWithFormat:@"%@", cfurl];
+        NSString* name = [path lastPathComponent];
+        NSLog(@"Adding name %@", name);
+        
         RecentItem* item = [[RecentItem alloc] initWithName:name andPath:path];
         [self.recentItemsDataController addItem:item];
     }
@@ -63,8 +84,9 @@
     ItemView* itemView2 = [[ItemView alloc] initWithFrame:NSMakeRect(0, 0, 200, 50)];
     NSMutableArray* windows = [OpenApplicationWindows getOpenWindows];
     NSMutableArray* recentFiles = [RecentlyChangedFiles getFilesList];
-    [self getRecentItems:recentFiles recentWindows:windows];
+    [self addRecentFiles:recentFiles];
     NSMenuItem* currApp = [[NSMenuItem alloc] init];
+    [self getRecentItems:recentFiles recentWindows:windows];
     [currApp setView:itemView];
     [currApp view];
     [[statusItem menu] addItem:currApp];
@@ -95,7 +117,7 @@
 	//[_events setExcludedPaths:excludePaths];
 	
 	// Start receiving events
-	// [_events startWatchingPaths:paths];
+	 [_events startWatchingPaths:paths];
     
 	// Display a description of the stream
 	//NSLog(@"%@", [_events streamDescription]);
@@ -109,7 +131,7 @@
     else {
         NSString* directoryName = [path lastPathComponent];
         if([directoryName hasPrefix:@"."]) {
-            NSLog(@"Hidden Directory");
+       //     NSLog(@"Hidden Directory");
             return TRUE;
         }
         else {
@@ -131,7 +153,7 @@
         for(id object in listOfSystemDirectories) {
             NSString* dirPath = (NSString*) object;
             if([dirPath isEqualToString:path]) {
-                NSLog(@"Lib Folder found");
+          //      NSLog(@"Lib Folder found");
                 return TRUE;
             }
         }
@@ -150,7 +172,7 @@
 { 
     NSString* path = [event eventPath];
  //   NSLog(@"Id is %ld", (unsigned long)[event eventId]);
-    NSLog(@"Path is %@", [event eventPath]);
+  //  NSLog(@"Path is %@", [event eventPath]);
     NSFileManager *fm = [NSFileManager defaultManager];
     NSURL *directoryURL = [NSURL fileURLWithPath:[event eventPath]];
     NSArray *urls = [fm contentsOfDirectoryAtURL:directoryURL
@@ -163,11 +185,11 @@
     NSNumber *isDirectory;
     
     if([self checkIfHiddenDirectory:[event eventPath]] || [self checkIfSystemFolder:[event eventPath]] ) {
-        NSLog(@"Directory is No good");
+       // NSLog(@"Directory is No good");
         return;
     }
     else {
-        NSLog(@"Changed Directory");
+     //   NSLog(@"Changed Directory");
     }
     
     for (NSURL *url in urls) {
@@ -185,7 +207,7 @@
         NSTimeInterval timeSince = [now timeIntervalSinceDate:modificationDate];
         if(timeSince < 10) {
            // NSLog(@"%@ %@ %@", name, modificationDate, isDirectory);
-            NSLog(@"File is %@", name);
+            NSLog(@"Changed File is %@", name);
             RecentItem* item = [[RecentItem alloc] initWithName:name andPath:[url absoluteString]];
             [self.recentItemsDataController addItem:item];
             

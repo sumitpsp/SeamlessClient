@@ -10,6 +10,7 @@
 #include "Testcpp.h"
 #import "SCEventListenerProtocol.h"
 #import "RecentItemsDataController.h"
+#import "ItemQueue.h"
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, SCEventListenerProtocol> {
     NSStatusItem *statusItem;
@@ -25,4 +26,5 @@
 @property (weak) IBOutlet NSMenu *menu;
 @property (weak) IBOutlet NSView *itemView;
 @property (strong, nonatomic) RecentItemsDataController* recentItemsDataController;
+@property (strong, nonatomic) ItemQueue* itemQueue;
 @end

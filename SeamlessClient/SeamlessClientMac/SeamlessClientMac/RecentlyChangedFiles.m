@@ -7,7 +7,7 @@
 //
 
 #import "RecentlyChangedFiles.h"
-
+#import "RecentItem.h"
 @implementation RecentlyChangedFiles
 +(NSMutableArray*) getFilesList {
     LSSharedFileListRef recentDocsFileList;
@@ -22,6 +22,7 @@
     recentDocsFiles = (NSArray *)CFBridgingRelease(LSSharedFileListCopySnapshot(recentDocsFileList,
                                                                                 &seed));
     UInt32 resolveFlags = kLSSharedFileListNoUserInteraction;
+    NSLog(@"Recent Files");
     if (recentDocsFiles) {
         recentDocsURLs = [NSMutableArray array];
         
@@ -32,12 +33,10 @@
                                         (CFURLRef *)&fileURL, NULL);
             nsURL = (__bridge NSURL *) fileURL;
             if (fileURL) {
-                [recentDocsURLs addObject:nsURL];
+                [recentDocsURLs addObject:(__bridge id)fileURL ];
                 NSString* path = [NSString stringWithFormat:@"%@", fileURL];
-                //NSString* path = [event eventPath];
                 NSString* name = [path lastPathComponent];
                 NSLog(@"%@", name);
-                NSLog(@"%@", nsURL);
             }
         }
     }
@@ -45,7 +44,7 @@
     NSLog(@"%@", NSHomeDirectory());
     
     CFRelease(recentDocsFileList);
-    return recentDocsFiles;
+    return recentDocsURLs;
 }
 
 @end

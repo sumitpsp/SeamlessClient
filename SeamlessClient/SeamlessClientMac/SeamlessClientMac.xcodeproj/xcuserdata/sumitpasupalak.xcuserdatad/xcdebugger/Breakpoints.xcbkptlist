@@ -19,11 +19,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SeamlessClientMac/AppDelegate.m"
-         timestampString = "400529975.343696"
+         timestampString = "400542862.721393"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "66"
-         endingLineNumber = "66"
+         startingLineNumber = "97"
+         endingLineNumber = "97"
          landmarkName = "-menuWillOpen:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -32,11 +32,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SeamlessClientMac/AppDelegate.m"
-         timestampString = "400529975.343696"
+         timestampString = "400542862.721393"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-menuWillOpen:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -45,11 +45,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SeamlessClientMac/AppDelegate.m"
-         timestampString = "400529975.343696"
+         timestampString = "400542862.721393"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "63"
-         endingLineNumber = "63"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
          landmarkName = "-menuWillOpen:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -58,11 +58,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SeamlessClientMac/AppDelegate.m"
-         timestampString = "400529975.343696"
+         timestampString = "400542862.721393"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "54"
-         endingLineNumber = "54"
+         startingLineNumber = "84"
+         endingLineNumber = "84"
          landmarkName = "-menuWillOpen:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -71,11 +71,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SeamlessClientMac/AppDelegate.m"
-         timestampString = "400529975.343696"
+         timestampString = "400542862.721393"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "53"
-         endingLineNumber = "53"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
          landmarkName = "-menuWillOpen:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -110,11 +110,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "SeamlessClientMac/AppDelegate.m"
-         timestampString = "400529975.343696"
+         timestampString = "400542862.721393"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
+         startingLineNumber = "96"
+         endingLineNumber = "96"
          landmarkName = "-menuWillOpen:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -129,6 +129,84 @@
          startingLineNumber = "38"
          endingLineNumber = "38"
          landmarkName = "-shareRequested:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SeamlessClientMac/AppDelegate.m"
+         timestampString = "400542862.721393"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "76"
+         endingLineNumber = "76"
+         landmarkName = "-addRecentFiles:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SeamlessClientMac/AppDelegate.m"
+         timestampString = "400542862.721393"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "74"
+         endingLineNumber = "74"
+         landmarkName = "-addRecentFiles:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SeamlessClientMac/RecentItemsDataController.m"
+         timestampString = "400539675.567642"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "49"
+         endingLineNumber = "49"
+         landmarkName = "-fileWithNameExists:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SeamlessClientMac/AppDelegate.m"
+         timestampString = "400540091.47562"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "60"
+         endingLineNumber = "60"
+         landmarkName = "-getRecentItems:recentWindows:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SeamlessClientMac/RecentItemsDataController.m"
+         timestampString = "400543959.837244"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "51"
+         endingLineNumber = "51"
+         landmarkName = "-fileWithNameExists:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "SeamlessClientMac/RecentlyChangedFiles.m"
+         timestampString = "400542322.793412"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
+         landmarkName = "+getFilesList"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

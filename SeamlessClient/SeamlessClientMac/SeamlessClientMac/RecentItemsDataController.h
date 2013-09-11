@@ -14,4 +14,5 @@
 - (NSUInteger) countOfRecentMasterItemsList;
 - (RecentItem*) objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addItem:(RecentItem*) item;
+- (RecentItem*) fileWithNameExists:(NSString*) name;
 @end

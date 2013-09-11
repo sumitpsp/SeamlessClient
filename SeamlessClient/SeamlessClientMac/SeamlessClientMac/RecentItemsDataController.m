@@ -44,6 +44,18 @@
     [self.recentMasterItemsList addObject:item];
 }
 
+- (RecentItem*) fileWithNameExists:(NSString*) name {
+    for (RecentItem* item in self.recentMasterItemsList) {
+        NSLog(@"Comparing probable name %@ to name %@ %@", name, [item name], [[item name] stringByDeletingPathExtension]);
+        if( ([[item name] isEqualToString:name]) || ([name isEqualToString:[[item name] stringByDeletingPathExtension]])) {
+            NSLog(@"nooooo");
+            return item;
+        }
+        
+    }
+    return nil;
+}
+
 @end
 
 
