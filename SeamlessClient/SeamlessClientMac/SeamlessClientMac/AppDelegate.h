@@ -12,11 +12,14 @@
 #import "RecentItemsDataController.h"
 #import "ItemQueue.h"
 
+@class HTTPServer;
+
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, SCEventListenerProtocol> {
     NSStatusItem *statusItem;
     __weak NSMenu *_menu;
     __weak NSView *_itemView;
     SCEvents *_events;
+    HTTPServer *httpServer;
 }
 
 - (void)setupEventListener;
