@@ -35,6 +35,9 @@
 - (BOOL) becomeFirstResponder { return YES; }
 - (BOOL) resignFirstResponder { return YES; }
 
+-(void) sendURL {
+    
+}
 - (IBAction)shareRequestedByWindow:(id)sender {
     NSLog(@"Sharing item %@", self.item.name);
     Contact* c = [[ContactsList sharedContactsList].contacts objectAtIndex:0];
@@ -48,13 +51,27 @@
     
     NSLog(@"Trying to transfer %@ to %@", self.item.name, url);
     
+    if([self.item.type isEqualToString:@"url"]) {
+        
+        NSDictionary *myParameters = [[NSDictionary alloc] initWithObjectsAndKeys:self.item.path, @"url", nil];
+        AFHTTPClient *httpClient = [[AFHTTPClient alloc] initWithBaseURL:urlPath];
+        [httpClient setParameterEncoding:AFFormURLParameterEncoding];
+        [httpClient postPath:@"/connectionurl" parameters:myParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSString *responseStr = [[NSString alloc] initWithData:responseObject encoding:NSUTF8StringEncoding];
+            NSLog(@"Request Successful, response '%@'", responseStr);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"[HTTPClient Error]: %@", error.localizedDescription);
+        }];
+        [self.window close];
+        return;
+    }
     NSData* fileData = nil;
     
     if([[NSFileManager defaultManager] fileExistsAtPath:self.item.path])
     {
         fileData = [[NSFileManager defaultManager] contentsAtPath:self.item.path];
     }
-        else
+    else
     {
         NSLog(@"File does not exist");
         [self.window close];
@@ -93,7 +110,7 @@
     return [[ContactsList sharedContactsList].contacts count];
 }
 
-- (id)          tableView:(NSTableView *)tableView
+- (id) tableView:(NSTableView *)tableView
 objectValueForTableColumn:(NSTableColumn *)column
                       row:(NSInteger)rowIndex {
     
@@ -116,7 +133,7 @@ objectValueForTableColumn:(NSTableColumn *)column
 
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)anObject forTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
-        NSButtonCell* data = [aTableColumn dataCellForRow:rowIndex];
+    NSButtonCell* data = [aTableColumn dataCellForRow:rowIndex];
     if(data.state == YES) {
         data.state = NO;
     }

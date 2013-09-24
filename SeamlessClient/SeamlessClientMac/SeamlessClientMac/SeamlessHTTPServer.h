@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "HTTPConnection.h"
+#import "MultipartFormDataParser.h"
 
-@interface SeamlessHTTPServer : HTTPConnection
+@interface SeamlessHTTPServer : HTTPConnection {
+    MultipartFormDataParser*        parser;
+	NSFileHandle*					storeFile;
+	
+	NSMutableArray*					uploadedFiles;
+}
 
 @end

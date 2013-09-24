@@ -250,8 +250,7 @@ static const int ddLogLevel = LOG_LEVEL_VERBOSE;
         RecentItem* browserItem = [[RecentItem alloc] init];
         browserItem.name = [self.activeTab objectForKey:@"title"];
         browserItem.path = [self.activeTab objectForKey:@"url"];
-       // browserItem.name = self.activeTab[@"title"];
-       // browserItem.path= self.activeTab[@"url"];
+        browserItem.type = @"url";
         browserItem.icon = [activeApp icon];
         return browserItem;
     }
