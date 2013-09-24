@@ -55,7 +55,7 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 	
 	if ([method isEqualToString:@"POST"] || [method isEqualToString:@"OPTIONS"])
 	{
-		if ([path isEqualToString:@"/activeurl"])
+		if ([path isEqualToString:@"/activeurl"] || [path isEqualToString:@"/connection"])
 		{
 			// Let's be extra cautious, and make sure the upload isn't 5 gigs
 			
@@ -96,6 +96,23 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
 		
 		HTTPLogVerbose(@"%@[%p]: Received URL is: %@", THIS_FILE, self, postStr);
 		
+        NSError *e = nil;
+        NSDictionary* urlInfo = [NSJSONSerialization JSONObjectWithData:postData options:NSJSONReadingMutableContainers error:&e];
+        
+        
+        
+        NSMutableDictionary* userInfo = [NSMutableDictionary dictionaryWithCapacity:2];
+        
+       //[userInfo setObject:<#(id)#> forKey:<#(id)#>]
+        
+        [userInfo setObject:[urlInfo objectForKey:@"url"] forKey:@"url"];
+        [userInfo setObject:[urlInfo objectForKey:@"title"] forKey:@"title"];
+        
+        [[NSNotificationCenter defaultCenter]
+         postNotificationName:@"URLNotification"
+         object:self
+         userInfo:userInfo];
+        
 		// Result will be of the form "answer=..."
 		
 		//int answer = [[postStr substringFromIndex:7] intValue];
@@ -111,6 +128,24 @@ static const int httpLogLevel = HTTP_LOG_LEVEL_VERBOSE; // | HTTP_LOG_FLAG_TRACE
         [httpResponseNow setOptionsHeader];
         return httpResponseNow;
 	}
+    else if([method isEqualToString:@"POST"] && [path isEqualToString:@"/connection"]) {
+        HTTPLogVerbose(@"%@[%p]: postContentLength: %qu", THIS_FILE, self, requestContentLength);
+		
+		NSString *postStr = nil;
+		
+		NSData *postData = [request body];
+		if (postData)
+		{
+			postStr = [[NSString alloc] initWithData:postData encoding:NSUTF8StringEncoding];
+		}
+		
+		HTTPLogVerbose(@"%@[%p]: Received data is: %@", THIS_FILE, self, postData);
+        
+        NSData *response = nil;
+		response = [@"<html><body><body></html>" dataUsingEncoding:NSUTF8StringEncoding];
+		return [[HTTPDataResponse alloc] initWithData:response];
+        
+    }
 	return [super httpResponseForMethod:method URI:path];
 }
 

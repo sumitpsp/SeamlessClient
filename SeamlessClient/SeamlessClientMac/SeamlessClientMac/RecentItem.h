@@ -15,4 +15,5 @@
 @property (nonatomic, strong) NSString* name;
 @property (nonatomic, strong) NSString *path;
 @property (nonatomic, strong) NSFileHandle *type;
+@property (nonatomic, strong) NSImage* icon;
 @end

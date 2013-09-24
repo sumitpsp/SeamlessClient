@@ -45,13 +45,30 @@
 }
 
 - (RecentItem*) fileWithNameExists:(NSString*) name {
+    if(name == nil) {
+        return nil;
+    }
+    NSError* error = nil;
+    NSRegularExpression *regex = [NSRegularExpression
+                                  regularExpressionWithPattern:@"(.+)\\%20\\(.*page.*\\)"
+                                  options:NSRegularExpressionCaseInsensitive
+                                  error:&error];
+    
+    NSTextCheckingResult *textCheckingResult = [regex firstMatchInString:name options:0 range:NSMakeRange(0, name.length)];
+    
+    NSRange matchRange = [textCheckingResult rangeAtIndex:1];
+    NSString *match = [name substringWithRange:matchRange];
+    if(![match isEqualTo:@""]) {
+        NSLog(@"Found string '%@'", match);
+        name = match;
+    }
+    
+    
     for (RecentItem* item in self.recentMasterItemsList) {
-        NSLog(@"Comparing probable name %@ to name %@ %@", name, [item name], [[item name] stringByDeletingPathExtension]);
+       
         if( ([[item name] isEqualToString:name]) || ([name isEqualToString:[[item name] stringByDeletingPathExtension]])) {
-            NSLog(@"nooooo");
             return item;
         }
-        
     }
     return nil;
 }

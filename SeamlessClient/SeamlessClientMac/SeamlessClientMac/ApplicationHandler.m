@@ -9,7 +9,7 @@
 #import "ApplicationHandler.h"
 
 @implementation ApplicationHandler {
-    
+        
 }
 
 @end

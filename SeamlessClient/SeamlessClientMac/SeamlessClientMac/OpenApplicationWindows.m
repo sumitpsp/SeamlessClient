@@ -25,7 +25,7 @@
         }
     }
     
-    NSLog(@"%@", filteredData);
+   // NSLog(@"%@", filteredData);
     
     return filteredData;
     // NSLog(@"window: %@", filteredData);

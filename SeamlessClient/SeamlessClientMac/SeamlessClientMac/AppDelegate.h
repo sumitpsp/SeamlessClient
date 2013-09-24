@@ -10,14 +10,15 @@
 #include "Testcpp.h"
 #import "SCEventListenerProtocol.h"
 #import "RecentItemsDataController.h"
-#import "ItemQueue.h"
+#import "RecentItemView.h"
+#import "ShareViewController.h"
+#import "MutableArrayQueue.h"
+#import "ServerBrowser.h"
+#import "Contact.h"
 
 @class HTTPServer;
 
 @interface AppDelegate : NSObject <NSApplicationDelegate, NSMenuDelegate, SCEventListenerProtocol> {
-    NSStatusItem *statusItem;
-    __weak NSMenu *_menu;
-    __weak NSView *_itemView;
     SCEvents *_events;
     HTTPServer *httpServer;
 }
@@ -25,9 +26,18 @@
 - (void)setupEventListener;
 
 
-@property (assign) IBOutlet NSWindow *window;
+@property (strong, nonatomic) NSStatusItem *statusItem;
+@property (strong, nonatomic) ShareViewController* shareViewController;
+@property (strong, nonatomic) ServerBrowser* serverBrowser;
 @property (weak) IBOutlet NSMenu *menu;
-@property (weak) IBOutlet NSView *itemView;
 @property (strong, nonatomic) RecentItemsDataController* recentItemsDataController;
-@property (strong, nonatomic) ItemQueue* itemQueue;
+@property (strong, nonatomic) NSMutableArray* windowFileMap;
+@property (strong, nonatomic) NSMutableArray* applicationFileMap;
+@property (strong, nonatomic) NSMutableArray* windows;
+@property (strong, nonatomic) NSMutableArray* recentFiles;
+@property (strong, nonatomic) NSMutableArray* itemQueue;
+@property (strong, nonatomic) NSMutableDictionary* activeTab;
+@property (nonatomic, strong) NSString* host;
+@property (nonatomic, assign) NSInteger port;
+@property (nonatomic, strong) NSMutableArray* contacts;
 @end
